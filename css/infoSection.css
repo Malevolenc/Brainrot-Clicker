@@ -1,0 +1,28 @@
+#infoSection{
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+    visibility: hidden;
+
+}
+
+#Info{
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
+}
+
+#infoTitle{
+    text-align: center;
+    font-size: 3em;
+}

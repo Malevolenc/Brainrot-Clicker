@@ -1,0 +1,27 @@
+#buttonUpgradesSection{
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    grid-template-rows: repeat(4, 50px);
+    gap: 20px;
+    padding: 5px 5px;
+
+    grid-area: upgrade;
+
+    visibility: visible;
+}
+
+.upgradeButton{
+    font-size: 15px;
+    border: 3px, black, solid;
+}
+
+.upgradeButton:hover{
+    background-color: hsl(51, 30%, 55%);
+}
+
+.upgradeButton:active{
+    background-color: hsl(51, 30%, 45%);
+}

@@ -1,0 +1,46 @@
+#gameContainer{
+    position: relative;
+
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+
+    z-index: 1;
+}
+
+@media screen and (min-width: 1000px) {
+    #gameContainer{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr 8fr;
+
+        grid-template-areas: 
+        "header header"
+        "stats stats"
+        "button upgrade";
+    }
+
+    #titleSection{
+        grid-column: span 2;
+    }
+
+    #statBar{
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #gameContainer{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 3fr 7fr;
+
+        grid-template-areas: 
+        "header"
+        "stats"
+        "button"
+        "upgrade";
+    }
+
+    #image{
+        width: 20%;
+    }
+}

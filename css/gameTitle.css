@@ -1,0 +1,15 @@
+#gameTitle{
+    font-size: 200%;
+    text-align: center;
+}
+
+#titleSection{
+    background-color: hsl(260, 60%, 97%);
+    border: 5px, black, solid;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+}
+
+#infoButton{
+    font-size: 3em;
+}

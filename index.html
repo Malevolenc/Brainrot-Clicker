@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainrot Clicker</title>
+
+    <link rel="stylesheet" href="css/gameTitle.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/statBar.css">
+    <link rel="stylesheet" href="css/gameContainer.css">
+    <link rel="stylesheet" href="css/buttonUpgradesSection.css">
+    <link rel="stylesheet" href="css/idleUpgradesSection.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/infoSection.css">
+    <link rel="stylesheet" href="css/menuInterface.css">
+    
+    
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="titleSection">
+            <h1 id="gameTitle">BRAINROT CLICKER</h1>
+            <button id="infoButton">!</button>
+        </div>
+
+        <div id="statBar">
+            <h2 class="statCounter" id="skibidiBucks"> Skibidi Bucks: 0 </h2>
+            <h2 class="statCounter" id="BucksPerClick">Skibidi Bucks Per Click: 1</h2>
+            <h2 class="statCounter" id="BucksPerSecond"> Skibidi Bucks Per Second: 0</h2>
+        </div>
+
+        <div id="buttonSection">
+            <button id="button"><img id="image" src="images/skibidi.png"></button>
+        </div>
+
+        <div id="buttonUpgradesSection">
+            <button class="toggleButtons" id="switchToIdle">Idle Upgrades</button>
+            <h3>Button Upgrades</h3>
+
+            <button id="upgrade1" class="upgradeButton">+1 Baby Oil: 100 Skibidi Bucks</button>
+
+            <button id="upgrade2" class="upgradeButton">+10 Drizzy's Meat: 500 Skibidi Bucks</button>
+        </div>
+
+        <div id="idleUpgradesSection">
+            <button class="toggleButtons" id="switchToButton">Button Upgrades</button>
+            <h3>Idle Upgrades</h3>
+
+            <button id="idle1" class="upgradeButton">+1 Be Sigma: 1000 Skibidi Bucks</button>
+
+            <button id="idle2" class="upgradeButton">+10 Gooners: 10000 Skibidi Bucks</button>
+        </div>
+    </div>
+
+    <div id="infoSection">
+        <div class="backdropShadow"></div>
+
+        <div class="menuInterface">
+            <h1 id="infoTitle">Patch Notes</h1>
+            <button class="exitButton" id="infoExit">X</button>
+            <div id="Info">
+                <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, esse vero dolore nesciunt illo ipsum cupiditate minus doloribus dolor aliquid, ab eius fuga molestias, eligendi possimus quae non officiis tenetur reprehenderit illum maxime tempora facere unde omnis! Veritatis fugit amet iusto iste illo beatae, a eius doloribus eaque sunt aspernatur!</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

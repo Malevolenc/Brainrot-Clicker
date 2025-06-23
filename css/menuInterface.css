@@ -1,0 +1,39 @@
+.backdropShadow{
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: hwb(0 13% 86%);
+    opacity: 0.3;
+
+    z-index: 1;
+}
+
+.menuInterface{
+    position: relative;
+    height: 85vh;
+    width: 70vw;
+    background-color: hwb(44 40% 0%);
+    border: 5px black solid;
+
+    display: grid;
+
+    grid-template-areas: 
+    "Title" "Exit"
+    "Info" "Info";
+
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: 1fr 7fr;
+
+    z-index: 2;
+}
+
+.exitButton{
+    background-color: red;
+
+    color: white;
+    font-size: 2em;
+
+    text-align: center;
+    border: 3px black solid;
+}
