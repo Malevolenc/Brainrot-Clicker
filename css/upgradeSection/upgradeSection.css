@@ -1,0 +1,29 @@
+.upgradeSection{
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-template-rows: repeat(4, 50px);
+    gap: 20px;
+    padding: 5px 5px;
+
+    grid-area: upgrade;
+}
+
+.upgradeButton{
+    font-size: 15px;
+    border: 3px, black, solid;
+}
+
+.upgradeButton:hover{
+    background-color: hsl(51, 30%, 55%);
+}
+
+.upgradeButton:active{
+    background-color: hsl(51, 30%, 45%);
+}
+
+.toggleButtons{
+    font-size: 35px;
+}

@@ -1,0 +1,45 @@
+#bossFightSection{
+    visibility: hidden;
+
+}
+
+#bossTitleSection{
+    text-align: center;
+}
+
+#bossFightInterface{
+    grid-template-areas: 
+    "Title"
+    "Image"
+    "Options";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 3fr;
+
+    background-color: hwb(0 100% 0%);
+}
+
+#kanye{
+    width: 60%;
+    
+}
+
+#imageSection{
+    display: flex;
+    justify-content: center;
+
+    grid-area: "Image";
+}
+
+#bossFightChoices{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bossFightChoice{
+    font-size: 2em;
+
+    height: 10vh;
+    width: 10vw;
+}

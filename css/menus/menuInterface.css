@@ -1,0 +1,47 @@
+.menuSection{
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.backdropShadow{
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: hwb(0 13% 86%);
+    opacity: 0.3;
+
+    z-index: 1;
+}
+
+.menuInterface{
+    position: relative;
+    height: 85vh;
+    width: 70vw;
+    background-color: hwb(44 40% 0%);
+    border: 5px black solid;
+
+    display: grid;
+
+    z-index: 2;
+}
+
+.exitButton{
+    background-color: red;
+
+    color: white;
+    font-size: 2em;
+
+    text-align: center;
+    border: 3px black solid;
+}

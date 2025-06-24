@@ -23,6 +23,10 @@ const infoButton = document.getElementById("infoButton");
 const infoExit = document.getElementById("infoExit");
 const infoMenu = document.getElementById("infoSection");
 
+// Rebirth //
+const bossFightUI = document.getElementById("bossFightSection");
+const rebirthButton = document.getElementById("rebirthButton");
+
 class GameClass{
     constructor(){
         this.skibidiBucks = 0;
@@ -32,15 +36,15 @@ class GameClass{
     }
 
     updateCounter(){ 
-        skibidiBucksCounter.innerHTML = `Skibidi Bucks: ${this.skibidiBucks}`;
+        skibidiBucksCounter.textContent = `Skibidi Bucks: ${this.skibidiBucks}`;
     }
 
     updatePassiveBucks(){
-        passiveBucksCounter.innerHTML = `Skibidi Bucks Per Second: ${this.passiveBucks}`
+        passiveBucksCounter.textContent = `Skibidi Bucks Per Second: ${this.passiveBucks}`
     }
 
     updateClickedBucks(){
-        bucksPerClickCounter.innerHTML = `Skibidi Bucks Per Click: ${this.clickedBucks}`
+        bucksPerClickCounter.textContent = `Skibidi Bucks Per Click: ${this.clickedBucks}`
     }
 }
 
@@ -89,7 +93,7 @@ class upgradeMechanicsClass{
     buyUpgrade(gameObject, button, element, type){
         let price = this.upgradeButtonsCosts[button];
 
-        let text = element.innerHTML;
+        let text = element.textContent;
 
         let prefix = text.slice(0,text.indexOf(":")+2);
 
@@ -98,7 +102,7 @@ class upgradeMechanicsClass{
             gameObject.updateCounter();
 
             this.upgradeButtonsCosts[button] = Math.round(this.upgradeButtonsCosts[button] *1.5)
-            element.innerHTML = `${prefix} ${this.upgradeButtonsCosts[button]} Skibidi Bucks`
+            element.textContent = `${prefix} ${this.upgradeButtonsCosts[button]} Skibidi Bucks`
         }
 
         else{
@@ -171,11 +175,23 @@ class menuMechanicsClass{
     }
 }
 
-game = new GameClass();
-gameMechanics = new GameMechanicsClass();
-upgradeMechanics = new upgradeMechanicsClass();
-soundMechanics = new soundMechanicsClass();
-menuMechanics = new menuMechanicsClass();
+class rebirthMechanicsClass{
+    constructor(){
+        this.rebirthPrice = 100000
+    }
+    startBossFight(game){
+        soundMechanics.tooPoorSound();
+    }
+}
+
+// Class Objects //
+
+const game = new GameClass();
+const gameMechanics = new GameMechanicsClass();
+const upgradeMechanics = new upgradeMechanicsClass();
+const soundMechanics = new soundMechanicsClass();
+const menuMechanics = new menuMechanicsClass();
+const rebirthMechanics = new rebirthMechanicsClass();
 
 button.onclick = function(){
     gameMechanics.buttonClicked(game);
@@ -221,6 +237,12 @@ infoButton.onclick = function(){
 
 infoExit.onclick = function(){
     menuMechanics.closeMenu("Info")
+}
+
+// Rebirth //
+
+rebirthButton.onclick = function(){
+    rebirthMechanics.startBossFight(game);
 }
 
 

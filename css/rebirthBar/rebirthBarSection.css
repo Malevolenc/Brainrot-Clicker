@@ -1,0 +1,19 @@
+#rebirthBarSection{
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    font-size: 2em;
+}
+
+.rebirthBarButton{
+    font-size: 0.8em;
+}
+
+.rebirthBarButton:hover{
+    background-color: hsl(51, 30%, 55%);
+}
+
+.rebirthBarButton:active{
+    background-color: hsl(51, 30%, 45%);
+}

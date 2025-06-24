@@ -11,12 +11,13 @@
 @media screen and (min-width: 1000px) {
     #gameContainer{
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr 1fr 8fr;
+        grid-template-rows: 1fr 1fr 8fr 1fr;
 
         grid-template-areas: 
         "header header"
         "stats stats"
-        "button upgrade";
+        "button upgrade"
+        "button rebirth";
     }
 
     #titleSection{
@@ -25,6 +26,10 @@
 
     #statBar{
         grid-column: span 2;
+    }
+
+    #buttonSection{
+        grid-row: span 2;
     }
 }
 
@@ -37,7 +42,8 @@
         "header"
         "stats"
         "button"
-        "upgrade";
+        "upgrade"
+        "rebirth";
     }
 
     #image{

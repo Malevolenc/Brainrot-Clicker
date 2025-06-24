@@ -1,0 +1,27 @@
+#infoSection{
+    visibility: hidden;
+
+}
+
+#infoInterface{
+    grid-template-areas: 
+    "Title" "Exit"
+    "Info" "Info";
+
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: 1fr 9fr;
+}
+
+#Info{
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
+
+    overflow: scroll;
+}
+
+#infoTitle{
+    text-align: center;
+    font-size: 3em;
+}

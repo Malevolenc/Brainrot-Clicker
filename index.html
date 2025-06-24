@@ -9,11 +9,24 @@
     <link rel="stylesheet" href="css/body.css">
     <link rel="stylesheet" href="css/statBar.css">
     <link rel="stylesheet" href="css/gameContainer.css">
-    <link rel="stylesheet" href="css/buttonUpgradesSection.css">
-    <link rel="stylesheet" href="css/idleUpgradesSection.css">
     <link rel="stylesheet" href="css/button.css">
-    <link rel="stylesheet" href="css/infoSection.css">
-    <link rel="stylesheet" href="css/menuInterface.css">
+
+    <!--Upgrade Section Stylesheets-->
+
+    <link rel="stylesheet" href="css/upgradeSection/buttonUpgradesSection.css">
+    <link rel="stylesheet" href="css/upgradeSection/idleUpgradesSection.css">
+    <link rel="stylesheet" href="css/upgradeSection/upgradeSection.css">
+
+    <!--Menu Stylesheets-->
+
+    <link rel="stylesheet" href="css/menus/infoSection.css">
+    <link rel="stylesheet" href="css/menus/menuInterface.css">
+    <link rel="stylesheet" href="css/menus/bossFightSection.css">
+
+    <!--Rebirth Bar Section Stylesheets-->
+
+    <link rel="stylesheet" href="css/rebirthBar/rebirthBarSection.css">
+
     
     
 </head>
@@ -28,13 +41,14 @@
             <h2 class="statCounter" id="skibidiBucks"> Skibidi Bucks: 0 </h2>
             <h2 class="statCounter" id="BucksPerClick">Skibidi Bucks Per Click: 1</h2>
             <h2 class="statCounter" id="BucksPerSecond"> Skibidi Bucks Per Second: 0</h2>
+            <h2 class="statCounter" id="multiplier"> Multiplier: 1x</h2>
         </div>
 
         <div id="buttonSection">
             <button id="button"><img id="image" src="images/skibidi.png"></button>
         </div>
 
-        <div id="buttonUpgradesSection">
+        <div class="upgradeSection" id="buttonUpgradesSection">
             <button class="toggleButtons" id="switchToIdle">Idle Upgrades</button>
             <h3>Button Upgrades</h3>
 
@@ -43,7 +57,7 @@
             <button id="upgrade2" class="upgradeButton">+10 Drizzy's Meat: 500 Skibidi Bucks</button>
         </div>
 
-        <div id="idleUpgradesSection">
+        <div class="upgradeSection" id="idleUpgradesSection">
             <button class="toggleButtons" id="switchToButton">Button Upgrades</button>
             <h3>Idle Upgrades</h3>
 
@@ -51,26 +65,89 @@
 
             <button id="idle2" class="upgradeButton">+10 Gooners: 10000 Skibidi Bucks</button>
         </div>
+
+        <div id="rebirthBarSection">
+            <button class="rebirthBarButton" id="rebirthButton">Rebirth: 100000 Skibidi Bucks (WIP)</button>
+            <button class="rebirthBarButton" id="rebirthShopButton">Rebirth Shop (WIP)</button>
+        </div>
+
+        
     </div>
 
-    <div id="infoSection">
+    <div class="menuSection" id="infoSection">
         <div class="backdropShadow"></div>
 
-        <div class="menuInterface">
+        <div class="menuInterface" id="infoInterface">
             <h1 id="infoTitle">Patch Notes</h1>
             <button class="exitButton" id="infoExit">X</button>
             <div id="Info">
                 <div>
-                    <h2>23/6/2025:</h2>
+                    <h1>23/6/2025: Update 1 (Humble Beginnings)</h1>
                     <h2> - You click the skibidi button to gain skibidi bucks.</h2>
                     <h2> - You use those skibidi bucks to purchase upgrades.</h2>
-                    <h2> - Button upgrades make your button much better by giving you more skibidi bucks per click.</h2>
+                    <h2> - Button upgrades make your button much better by giving you more 
+                        skibidi bucks per click.
+                    </h2>
                     <h2> - Idle upgrades give you passive money generation per second.</h2>
 
                     <br>
 
-                    <h2> - Planning to add many more features from my older version such as rebirthing / kanye west final boss / buying different buttons / and a save mechanic.</h2>
+                    <h2> - Planning to add many more features from my older version such as 
+                        rebirthing / kanye west final boss / buying different buttons / and 
+                        a save mechanic.
+                    </h2>
+
+                    <br>
+
+                    <h1>24/6/2025: Update 2 (Rebirth Update Part 1)</h1>
+                    <h2> - Added new stat called multiplier (Increases how much skibidi bucks you
+                         earn based of multipler - 2x multiplier = 2 skibidi bucks per click
+                          without upgrades. Still WIP)
+                    </h2>
+                    <h2> - Added a new bar at the bottom right which handles rebirthing +
+                        buying upgrades (Rebirth Shop still WIP).
+                    </h2>
+                    <h2> - What is rebirthing?: Rebirthing will reset all upgrades / skibidi bucks
+                        in exchange for an increased multiplier + rebirth exclusive currency which
+                        is still WIP.
+                    </h2>
+                    <h2> - How will the rebirth mechanic work in Brainrot Clicker?: 
+                        You get enough money to rebirth, you fight Kanye (Instructions will be in the
+                        bossfight menu).
+                    </h2>
+
+                    <br>
+
+                    <h2> - Expect these additions in the next update (probably only rebirth mechanic)</h2>
+
+
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menuSection" id="bossFightSection">
+        <div class="backdropShadow"></div>
+
+        <div class="menuInterface" id="bossFightInterface">
+            <div id="bossTitleSection">
+                <h1>Kanye Boss Fight</h1>
+                <h3>- Click a random button</h3>
+                <h3>- Choose the wrong button = no rebirth + lose bucks</h3>
+                <h3>- Choose right button = find out and see!</h3>
+            </div>
+            
+            <div id="imageSection">
+                <img id="kanye" src="images/kanye.png">
+            </div>
+
+            <div id="bossFightChoices">
+                <button class="bossFightChoice">1</button>
+                <button class="bossFightChoice">2</button>
+                <button class="bossFightChoice">3</button>
+                <button class="bossFightChoice">4</button>
+                <button class="bossFightChoice">5</button>
+                <button class="bossFightChoice">6</button>
             </div>
         </div>
     </div>
