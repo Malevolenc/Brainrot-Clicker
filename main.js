@@ -58,7 +58,7 @@ const choice6 = document.getElementById("choice6");
 
 class GameClass{
     constructor(){
-        this.skibidiBucks = 1000000;
+        this.skibidiBucks = 0;
 
         this.passiveBucks = 0;
         this.passiveBucksTime = 1000;
@@ -218,7 +218,7 @@ class upgradeMechanicsClass{
         }
     }
 
-    applyDiscount(){
+    applyDiscount(gameObject){
         for (let key in this.upgradeButtons){
             this.upgradeButtons[key][1] *= gameObject.discountMultiplier;
         }
@@ -430,7 +430,7 @@ class rebirthShopMechanicsClass{
                 case "Aura":
                     if (gameObject.discountMultiplier >= 0.05){
                         gameObject.discountMultiplier-= 0.05;
-                        upgradeObject.applyDiscount();
+                        upgradeObject.applyDiscount(gameObject);
                         upgradeObject.setUpgradeCosts(gameObject);
                     }
                     break;
