@@ -1,0 +1,21 @@
+#rebirthRewardsSection{
+    visibility: hidden; 
+}
+
+#rebirthRewardsInterface{
+    background-color: white;
+
+    grid-template-areas: 
+    "title"
+    "rewards";
+
+    grid-template-rows: 1fr 9fr;
+
+    width: 50vw;
+
+    text-align: center;
+}
+
+#rebirthRewards{
+    font-size: 1.5em;
+}

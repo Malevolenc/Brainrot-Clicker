@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/menus/infoSection.css">
     <link rel="stylesheet" href="css/menus/menuInterface.css">
     <link rel="stylesheet" href="css/menus/bossFightSection.css">
+    <link rel="stylesheet" href="css/menus/rebirthRewardsSection.css">
+    <link rel="stylesheet" href="css/menus/rebirthShopSection.css">
 
     <!--Rebirth Bar Section Stylesheets-->
 
@@ -38,10 +40,10 @@
         </div>
 
         <div id="statBar">
-            <h2 class="statCounter" id="skibidiBucks"> Skibidi Bucks: 0 </h2>
-            <h2 class="statCounter" id="BucksPerClick">Skibidi Bucks Per Click: 1</h2>
-            <h2 class="statCounter" id="BucksPerSecond"> Skibidi Bucks Per Second: 0</h2>
-            <h2 class="statCounter" id="multiplier"> Multiplier: 1x</h2>
+            <h2 class="statCounter" id="skibidiBucks"> Skibidi Bucks:  </h2>
+            <h2 class="statCounter" id="BucksPerClick">Skibidi Bucks Per Click: </h2>
+            <h2 class="statCounter" id="BucksPerSecond"> Skibidi Bucks Per Second: </h2>
+            <h2 class="statCounter" id="multiplier"> Multiplier: </h2>
         </div>
 
         <div id="buttonSection">
@@ -52,23 +54,36 @@
             <button class="toggleButtons" id="switchToIdle">Idle Upgrades</button>
             <h3>Button Upgrades</h3>
 
-            <button id="upgrade1" class="upgradeButton">+1 Baby Oil: 100 Skibidi Bucks</button>
+            <button id="upgrade1" class="upgradeButton">+1 Baby Oil: </button>
 
-            <button id="upgrade2" class="upgradeButton">+10 Drizzy's Meat: 500 Skibidi Bucks</button>
+            <button id="upgrade2" class="upgradeButton">+10 Drizzy's Meat: </button>
+
+            <button id="upgrade3" class="upgradeButton">+50 Tung Tung Tung: </button>
+
+            <button id="upgrade4" class="upgradeButton">+100 Mustard: </button>
+
+            <button id="upgrade5" class="upgradeButton">+250 Get a J*b: </button>
         </div>
 
         <div class="upgradeSection" id="idleUpgradesSection">
             <button class="toggleButtons" id="switchToButton">Button Upgrades</button>
             <h3>Idle Upgrades</h3>
 
-            <button id="idle1" class="upgradeButton">+1 Be Sigma: 1000 Skibidi Bucks</button>
+            <button id="idle1" class="upgradeButton">+1 Be Sigma: </button>
 
-            <button id="idle2" class="upgradeButton">+10 Gooners: 10000 Skibidi Bucks</button>
+            <button id="idle2" class="upgradeButton">+10 Gooners: </button>
+
+            <button id="idle3" class="upgradeButton">+25 Runaway: </button>
+
+            <button id="idle4" class="upgradeButton">+100 Squirt Game: </button>
+
+            <button id="idle5" class="upgradeButton">+500 Omni Man: </button>
+
         </div>
 
         <div id="rebirthBarSection">
-            <button class="rebirthBarButton" id="rebirthButton">Rebirth: 100000 Skibidi Bucks (WIP)</button>
-            <button class="rebirthBarButton" id="rebirthShopButton">Rebirth Shop (WIP)</button>
+            <button class="rebirthBarButton" id="rebirthButton">Rebirth: 100000 Skibidi Bucks</button>
+            <button class="rebirthBarButton" id="rebirthShopButton">Rebirth Shop</button>
         </div>
 
         
@@ -120,6 +135,19 @@
 
                     <h2> - Expect these additions in the next update (probably only rebirth mechanic)</h2>
 
+                    <br>
+
+                    <h1>2/7/2025: Update 3 (Rebirth Upgrade Part 2)</h1>
+                    <h2> - Added new currency called Hawk Tuah Coins (Special currency which can only
+                        be used to upgrade rebirth upgrades)
+                    </h2>
+                    <h2> - Rebirth upgrades are permanent (Saves even after rebirthing)</h2>
+                    <h2> - Added more idle upgrades and button upgrades</h2>
+
+                    <br>
+
+                    <h2> - Planning to add a mechanic to change image on button</h2>
+
 
                 </div>
             </div>
@@ -142,15 +170,50 @@
             </div>
 
             <div id="bossFightChoices">
-                <button class="bossFightChoice">1</button>
-                <button class="bossFightChoice">2</button>
-                <button class="bossFightChoice">3</button>
-                <button class="bossFightChoice">4</button>
-                <button class="bossFightChoice">5</button>
-                <button class="bossFightChoice">6</button>
+                <button class="bossFightChoice" id="choice1">1</button>
+                <button class="bossFightChoice" id="choice2">2</button>
+                <button class="bossFightChoice" id="choice3">3</button>
+                <button class="bossFightChoice" id="choice4">4</button>
+                <button class="bossFightChoice" id="choice5">5</button>
+                <button class="bossFightChoice" id="choice6">6</button>
             </div>
         </div>
     </div>
+
+    <div class="menuSection" id="rebirthRewardsSection">
+        <div class="backdropShadow"></div>
+
+        <div class="menuInterface" id="rebirthRewardsInterface">
+            <h1 id="rebirthRewardsTitle">Rebirth Rewards</h1>
+
+            <div id="rebirthRewards">
+                <h3 id="rebirthMultiplerIncrease">Multiplier + 1x</h3>
+                <h3 id="hawkTuahCoinsIncrease">Hawk Tuah Coins </h3>
+                <h3>All Skibidi Bucks, Upgrades are reset!</h3>
+                <h3>100 Skibidi Bucks = 0.01 Hawk Tuah Coins</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="menuSection" id="rebirthShopSection">
+        <div class="backdropShadow"></div>
+
+        <div class="menuInterface" id="rebirthShopInterface">
+            <div id="rebirthShopTitle">
+                <h1>Rebirth Shop</h1>
+                <h3>- Permanent Upgrades (Save even after rebirthing)</h3>
+            </div>
+            
+            <button class="exitButton" id="rebirthShopExit">X</button>
+
+            <div class="upgradeSection" id="rebirthUpgradesSection">
+                <h2 id="hawkTuahCoins">Hawk Tuah Coins: 0</h2>
+                <button class="upgradeButton" id="rebirthUpgrade1">+Goon Speed (-0.1s Passive Skibidi Bucks): 50 Hawk Tuah Coins </button>
+                <button class="upgradeButton" id="rebirthUpgrade2">+Aura (-5% Upgrade Costs): 50 Hawk Tuah Coins</button>
+
+            </div>
+        </div>
 
     <script src="main.js"></script>
 </body>

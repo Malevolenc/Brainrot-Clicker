@@ -1,0 +1,31 @@
+#rebirthShopSection{
+    visibility: hidden;
+}
+
+#rebirthShopInterface{
+    grid-template-areas:
+    "Title Exit"
+    "Upgrades Upgrades";
+
+    grid-template-rows: 1fr 9fr;
+    grid-template-columns: 9fr 1fr;
+}
+
+#rebirthShopExit{
+    grid-area: Exit;
+}
+
+#rebirthShopTitle{
+    font-size: 1.25em;
+    text-align: center;
+
+    grid-area: Title;
+}
+
+#rebirthUpgradesSection{
+    grid-column: span 2;
+
+    background-color: white;
+
+    border-top: 5px black solid;
+}

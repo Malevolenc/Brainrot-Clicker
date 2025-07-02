@@ -1,4 +1,5 @@
 #idleUpgradesSection{
     visibility: hidden;
+    grid-area: upgrade;
 }
 

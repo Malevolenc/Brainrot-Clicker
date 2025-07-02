@@ -1,4 +1,5 @@
 #buttonUpgradesSection{
     visibility: visible;
+    grid-area: upgrade;
 }
 
