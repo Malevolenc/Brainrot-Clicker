@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/menus/bossFightSection.css">
     <link rel="stylesheet" href="css/menus/rebirthRewardsSection.css">
     <link rel="stylesheet" href="css/menus/rebirthShopSection.css">
+    <link rel="stylesheet" href="css/menus/changeImageSection.css">
+
 
     <!--Rebirth Bar Section Stylesheets-->
 
@@ -47,7 +49,8 @@
         </div>
 
         <div id="buttonSection">
-            <button id="button"><img id="image" src="images/skibidi.png"></button>
+            <button id="button"><img id="buttonImage" src="images/skibidi.png"></button>
+            <button id="changeImageButton">Change Image</button>
         </div>
 
         <div class="upgradeSection" id="buttonUpgradesSection">
@@ -193,7 +196,6 @@
                 <h3>100 Skibidi Bucks = 0.01 Hawk Tuah Coins</h3>
             </div>
         </div>
-
     </div>
 
     <div class="menuSection" id="rebirthShopSection">
@@ -211,9 +213,44 @@
                 <h2 id="hawkTuahCoins">Hawk Tuah Coins: 0</h2>
                 <button class="upgradeButton" id="rebirthUpgrade1">+Goon Speed (-0.1s Passive Skibidi Bucks): 50 Hawk Tuah Coins </button>
                 <button class="upgradeButton" id="rebirthUpgrade2">+Aura (-5% Upgrade Costs): 50 Hawk Tuah Coins</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menuSection" id="changeImageSection">
+        <div class="backdropShadow"></div>
+
+        <div class="menuInterface" id="changeImageInterface">
+            <h1 id="changeImageTitle">Images</h1>
+            <button class="exitButton" id="changeImageExit">X</button>
+
+            <div id="changeImageOptionsSection">
+                <div class="changeImageOptions">
+                    <img class="imageOptions" src="images/skibidi.png">
+                    <div class="changeImageName">
+                        <h1>Skibidi: No Buffs</h1>
+                        <h1>Requirement: N/A</h1>
+                    </div>
+                    
+                    <button class="changeImageEquip" id="image1Equip">Equip</button>
+                </div>
+
+                <div class="changeImageOptions">
+                    <img class="imageOptions" src="images/kanye.png">
+
+                    <div class="changeImageName">
+                        <h1>Kanye: 1.25x Skibidi Bucks</h1>
+                        <h1>Requirement: Rebirth Once!</h1>
+                    </div>
+                    
+                    <button class="changeImageEquip" id="image2Equip">Equip</button>
+                </div>
 
             </div>
         </div>
+    </div>
+
+    
 
     <script src="main.js"></script>
 </body>

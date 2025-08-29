@@ -1,4 +1,32 @@
 #buttonSection{
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 16fr 2fr;
 }
+
+#changeImageButton{
+    font-size: 1.5em;
+}
+
+#button{
+    padding: 0;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+    #buttonImage{
+        height: 500px;
+        width: 500px;
+    }
+} 
+
+@media screen and (max-width: 1000px) {
+    #buttonImage{
+        height: 250px;
+        width: 250px;
+    }
+} 

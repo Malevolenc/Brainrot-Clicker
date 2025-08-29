@@ -32,15 +32,15 @@ const infoExit = document.getElementById("infoExit");
 const infoMenu = document.getElementById("infoSection");
 
 // Rebirth //
-const bossFightUI = document.getElementById("bossFightSection");
+const bossFightMenu = document.getElementById("bossFightSection");
 const rebirthButton = document.getElementById("rebirthButton");
 
-const rebirthRewardsSection = document.getElementById("rebirthRewardsSection");
+const rebirthRewardsMenu = document.getElementById("rebirthRewardsSection");
 
 const hawkTuahCoinsIncrease = document.getElementById("hawkTuahCoinsIncrease");
 
 // Rebirth Shop //
-const rebirthShopSection = document.getElementById("rebirthShopSection");
+const rebirthShopMenu = document.getElementById("rebirthShopSection");
 const rebirthShopButton = document.getElementById("rebirthShopButton");
 
 const rebirthShopExit = document.getElementById("rebirthShopExit");
@@ -55,6 +55,14 @@ const choice3 = document.getElementById("choice3");
 const choice4 = document.getElementById("choice4");
 const choice5 = document.getElementById("choice5");
 const choice6 = document.getElementById("choice6");
+
+// Change Image //
+const changeImageButton = document.getElementById("changeImageButton");
+const changeImageMenu = document.getElementById("changeImageSection");
+const changeImageExit = document.getElementById("changeImageExit");
+
+const image1EquipButton = document.getElementById("image1Equip");
+const image2EquipButton = document.getElementById("image2Equip");
 
 class GameClass{
     constructor(){
@@ -134,7 +142,7 @@ class upgradeMechanicsClass{
         this.upgradeButtons = {
             "Button1": [upgradeButton1, 100, 1],
             "Button2": [upgradeButton2, 500, 10],
-            "Button3": [upgradeButton3, 1000, 50],
+            "Button3": [upgradeButton3, 10000, 50],
             "Button4": [upgradeButton4, 20000, 100],
             "Button5": [upgradeButton5, 50000, 250],
 
@@ -220,7 +228,7 @@ class upgradeMechanicsClass{
 
     applyDiscount(gameObject){
         for (let key in this.upgradeButtons){
-            this.upgradeButtons[key][1] *= gameObject.discountMultiplier;
+            this.upgradeButtons[key][1] = Number((this.upgradeButtons[key][1] * gameObject.discountMultiplier).toFixed(2));
         }
     }
 
@@ -261,17 +269,30 @@ class upgradeMechanicsClass{
 class soundMechanicsClass{
     constructor(){
         this.button1Sound = new Audio(`sounds/Diddy.mp3`);
-        this.button2Sound = new Audio(`sounds/Drizzy.mp3`)
+        this.button2Sound = new Audio(`sounds/Drizzy.mp3`);
+        this.button3Sound = new Audio(`sounds/Tung.mp3`);
+        this.button4Sound = new Audio(`sounds/Mustard.mp3`);
+        this.button5Sound = new Audio(`sounds/Job.mp3`);
 
         this.idle1Sound = new Audio(`sounds/Sigma.mp3`);
         this.idle2Sound = new Audio(`sounds/Gooners.mp3`);
+        this.idle3Sound = new Audio(`sounds/Runaway.mp3`);
+        this.idle4Sound = new Audio(`sounds/Squid.mp3`);
+        this.idle5Sound = new Audio(`sounds/Omni.mp3`);
+
 
         this.upgradeSounds = {
             "Button1": this.button1Sound,
             "Button2": this.button2Sound,
+            "Button3": this.button3Sound,
+            "Button4": this.button4Sound,
+            "Button5": this.button5Sound,
 
             "Idle1": this.idle1Sound,
-            "Idle2": this.idle2Sound
+            "Idle2": this.idle2Sound,
+            "Idle3": this.idle3Sound,
+            "Idle4": this.idle4Sound,
+            "Idle5": this.idle5Sound
         };
 
         this.buttonClickSound = new Audio(`sounds/fart.mp3`);
@@ -316,19 +337,20 @@ class menuMechanicsClass{
     constructor(){
         this.menus = {
             "Info": infoMenu,
-            "Boss Fight": bossFightUI,
-            "Rebirth Rewards": rebirthRewardsSection,
-            "Rebirth Shop": rebirthShopSection
-        }
-    }
+            "Boss Fight": bossFightMenu,
+            "Rebirth Rewards": rebirthRewardsMenu,
+            "Rebirth Shop": rebirthShopMenu,
+            "Change Image": changeImageMenu
+        };
+    };
     openMenu(menu){
         this.menus[menu].style.visibility = "visible";
-    }
+    };
 
     closeMenu(menu){
         this.menus[menu].style.visibility = "hidden";
-    }
-}
+    };
+};
 
 class rebirthMechanicsClass{
     constructor(){
@@ -356,7 +378,7 @@ class rebirthMechanicsClass{
 
     generateRandomChoice(){
         // Randomly chooses a button that allows the user to successfully rebirth.
-        return this.choices[Math.floor((Math.random()*6))]
+        return this.choices[Math.floor((Math.random()*6))];
     }
 
     chooseChoice(gameObject, upgradeObject, chosenButton){
@@ -364,12 +386,12 @@ class rebirthMechanicsClass{
 
         if (chosenButton == correctChoice){
             menuMechanics.closeMenu("Boss Fight"); // Closes Boss Fight
-            this.giveRebirthRewards(gameObject, upgradeObject);
 
             this.rebirthResetStats(gameObject, upgradeObject);
+            this.giveRebirthRewards(gameObject, upgradeObject);
         
             setTimeout(function(){
-                menuMechanics.closeMenu("Rebirth Rewards")
+                menuMechanics.closeMenu("Rebirth Rewards");
             }, 3000)
 
             gameMechanics.setMultiplier(gameObject, upgradeObject);
@@ -390,6 +412,8 @@ class rebirthMechanicsClass{
         
         hawkTuahCoinsIncrease.textContent = `Hawk Tuah Coins +${hawkTuahCoinsGained}`;
 
+        gameObject.skibidiBucks = 0;
+
         gameObject.multiplier++;
         gameObject.hawkTuahCoins += hawkTuahCoinsGained;
         gameObject.rebirthCount++;
@@ -400,8 +424,6 @@ class rebirthMechanicsClass{
     }
 
     rebirthResetStats(gameObject, upgradeObject){
-        gameObject.skibidiBucks = 0;
-
         gameObject.passiveBucks = 0;
         gameObject.clickedBucks = 1;
 
@@ -409,29 +431,35 @@ class rebirthMechanicsClass{
         upgradeObject.setUpgradeCosts(gameObject);
 
     }
-}
+};
 
 class rebirthShopMechanicsClass{
     constructor(){
         this.rebirthUpgradesCosts = {
             "Goon Speed": 50,
             "Aura": 50
-        }
+        };
     }
 
     buyUpgrade(gameObject, upgradeObject, upgrade, currentUpgrade){
         if (gameObject.hawkTuahCoins >= this.rebirthUpgradesCosts[upgrade]){
             switch(upgrade){
                 case "Goon Speed":
-                    if (gameObject.passiveBucksTime >= 100){
+                    if (gameObject.passiveBucksTime > 100){
                         gameObject.passiveBucksTime-=100;
+                    }
+                    else{
+                        return;
                     }
                     break;
                 case "Aura":
-                    if (gameObject.discountMultiplier >= 0.05){
+                    if (gameObject.discountMultiplier > 0.05){
                         gameObject.discountMultiplier-= 0.05;
                         upgradeObject.applyDiscount(gameObject);
                         upgradeObject.setUpgradeCosts(gameObject);
+                    }
+                    else{
+                        return;
                     }
                     break;
                     
@@ -453,6 +481,34 @@ class rebirthShopMechanicsClass{
 
         currentUpgrade.textContent = `${prefix} ${this.rebirthUpgradesCosts[upgrade]} Hawk Tuah Coins`
     }
+};
+
+class changeImageMechanicsClass{
+    changeImage(gameObject,image){
+        this.acceptedImages = {
+            "Skibidi Toilet": [
+                "images/skibidi.png",
+                (gameObject) => gameObject != null],
+
+            "Kanye East": [
+                "images/kanye.png",
+                (gameObject) => gameObject.rebirthCount >= 1]
+        };
+
+        if (this.acceptedImages[image][1](gameObject)){
+            document.getElementById("buttonImage").src = this.acceptedImages[image][0];
+        }
+
+        else{
+            soundMechanics.tooPoorSound();
+        }
+    }
+}
+
+class gameStateMechanicsClass{
+    saveGame(){
+        
+    }
 }
 
 // Class Objects //
@@ -464,6 +520,7 @@ const soundMechanics = new soundMechanicsClass();
 const menuMechanics = new menuMechanicsClass();
 const rebirthMechanics = new rebirthMechanicsClass();
 const rebirthShopMechanics = new rebirthShopMechanicsClass();
+const changeImageMechanics = new changeImageMechanicsClass();
 
 gameMechanics.setMultiplier(game, upgradeMechanics);
 upgradeMechanics.setUpgradeCosts(game);
@@ -476,7 +533,7 @@ button.onclick = function(){
 function passiveBucksLoop(){
     gameMechanics.getPassiveBucks(game);
     setTimeout(passiveBucksLoop, game.passiveBucksTime);
-}
+};
 
 passiveBucksLoop();
 
@@ -489,7 +546,7 @@ upgradeButton1.onclick = function(){
 
 upgradeButton2.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Button2", "button");
-}
+};
 
 upgradeButton3.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Button3", "button");
@@ -497,11 +554,11 @@ upgradeButton3.onclick = function(){
 
 upgradeButton4.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Button4", "button");
-}
+};
 
 upgradeButton5.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Button5", "button");
-}
+};
 
 // Idle //
 
@@ -511,7 +568,7 @@ idleButton1.onclick = function(){
 
 idleButton2.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Idle2", "idle");
-}
+};
 
 idleButton3.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Idle3", "idle");
@@ -519,76 +576,93 @@ idleButton3.onclick = function(){
 
 idleButton4.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Idle4", "idle");
-}
+};
 
 idleButton5.onclick = function(){
     upgradeMechanics.buyUpgrade(game, "Idle5", "idle");
-}
+};
 
 // Toggle Upgrade Section //
 
 switchToButton.onclick = function(){
-    upgradeMechanics.switchUpgrades(switchToButton, switchToIdle)
-}
+    upgradeMechanics.switchUpgrades(switchToButton, switchToIdle);
+};
 
 switchToIdle.onclick = function(){
-    upgradeMechanics.switchUpgrades(switchToIdle, switchToButton)
-}
+    upgradeMechanics.switchUpgrades(switchToIdle, switchToButton);
+};
 
 // Toggle Menus //
 
 infoButton.onclick = function(){
-    menuMechanics.openMenu("Info")
-}
+    menuMechanics.openMenu("Info");
+};
 
 infoExit.onclick = function(){
-    menuMechanics.closeMenu("Info")
-}
+    menuMechanics.closeMenu("Info");
+};
 
 // Rebirth //
 
 rebirthButton.onclick = function(){
     rebirthMechanics.startBossFight(game);
-}
+};
 
 // Bossfight Choices //
 choice1.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice1);
-}
+};
 
 choice2.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice2);
-}
+};
 
 choice3.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice3);
-}
+};
 
 choice4.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice4);
-}
+};
 
 choice5.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice5);
-}
+};
 
 choice6.onclick = function(){
     rebirthMechanics.chooseChoice(game, upgradeMechanics, choice6);
-}
+};
 
 // Rebirth Shop //
 rebirthShopButton.onclick = function(){
     menuMechanics.openMenu("Rebirth Shop");
-}
+};
 
 rebirthShopExit.onclick = function(){
     menuMechanics.closeMenu("Rebirth Shop");
-}
+};
 
 rebirthUpgrade1.onclick = function(){
-    rebirthShopMechanics.buyUpgrade(game, upgradeMechanics, "Goon Speed", rebirthUpgrade1)
-}
+    rebirthShopMechanics.buyUpgrade(game, upgradeMechanics, "Goon Speed", rebirthUpgrade1);
+};
 
 rebirthUpgrade2.onclick = function(){
-    rebirthShopMechanics.buyUpgrade(game, upgradeMechanics, "Aura", rebirthUpgrade2)
+    rebirthShopMechanics.buyUpgrade(game, upgradeMechanics, "Aura", rebirthUpgrade2);
+};
+
+// Change Image //
+changeImageButton.onclick = function(){
+    menuMechanics.openMenu("Change Image");
+};
+
+changeImageExit.onclick = function(){
+    menuMechanics.closeMenu("Change Image");
+};
+
+image1EquipButton.onclick = function(){
+    changeImageMechanics.changeImage(game, "Skibidi Toilet");
+}
+
+image2EquipButton.onclick = function(){
+    changeImageMechanics.changeImage(game, "Kanye East");
 }

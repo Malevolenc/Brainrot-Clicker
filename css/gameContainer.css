@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 1000px) {
     #gameContainer{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 50% 50%;
         grid-template-rows: 1fr 1fr 8fr 1fr;
 
         grid-template-areas: 
